@@ -45,7 +45,15 @@ def grab_data(lis):
 				"score":		raw[5],
 				"link":			raw[6]
 			}
-			o.append(d)
+			try:  
+			    float(raw[5]) 
+			    res = True
+			except: 
+			    print("Score not a float...Skipping...") 
+			    res = False
+
+			if res:
+				o.append(d)
 		
 	print("Done!")
 	return o
@@ -60,10 +68,10 @@ def clean_URLs(lis):
 	print("Done!")
 	return o
 
-def grab_URLs():
+def grab_URLs(r):
 	o = []
 	print("Grabbing review links...")
-	for i in range(30):
+	for i in range(r):
 		l = 'https://pitchfork.com/reviews/albums/?page=' + str(i + 1)
 		print(l)
 		r = requests.get(l)
@@ -77,7 +85,7 @@ def grab_URLs():
 	return o
 
 def main():
-	u = grab_URLs()
+	u = grab_URLs(1)
 	u = clean_URLs(u)
 	d = grab_data(u)
 	print("Writing to output.json")
