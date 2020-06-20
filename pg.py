@@ -134,7 +134,7 @@ def format_graph_data(all_data):
 
 
 def main():
-	u = grab_URLs(250)
+	u = grab_URLs(1)
 	u = clean_URLs(u)
 	all_data = grab_data(u)
 	graph_data = format_graph_data(all_data)
@@ -149,7 +149,7 @@ def main():
 	labels = ['0.0-0.5', '0.6-1.5', '1.6-2.5', '2.6-3.5', '3.6-4.5', '4.6-5.5', '5.6-6.5', '6.6-7.5', '7.6-8.5', '8.6-9.5', '9.6-10']
 	fig = go.Figure(go.Bar(x=labels, y=graph_data, marker={'color': graph_data, 'colorscale': 'Viridis'}))
 	fig.update_layout(title_text=title)
-	pio.write_html(fig, file='index.html', auto_open=False)
+	pio.write_html(fig, file='graph.html', auto_open=True)
 
 
 	# print("Writing to output.json")
