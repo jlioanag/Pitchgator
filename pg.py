@@ -149,7 +149,7 @@ def main():
 	labels = ['0.0-0.5', '0.6-1.5', '1.6-2.5', '2.6-3.5', '3.6-4.5', '4.6-5.5', '5.6-6.5', '6.6-7.5', '7.6-8.5', '8.6-9.5', '9.6-10']
 	fig = go.Figure(go.Bar(x=labels, y=graph_data, marker={'color': graph_data, 'colorscale': 'Viridis'}))
 	fig.update_layout(title_text=title)
-	pio.write_html(fig, file='graph.html', auto_open=True)
+	pio.write_html(fig, file='data/graph.html', auto_open=True)
 
 
 	# print("Writing to output.json")
